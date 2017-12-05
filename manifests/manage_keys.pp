@@ -2,9 +2,10 @@
 define accounts::manage_keys(
   $user,
   $key_file,
+  $keys,
 ) {
 
-  $key_array   = split($name, ' ')
+  $key_array   = split($keys, ' ')
   # If the key array doesn't start with ssh or ecdsa, then key_array[0] is
   # assumed to contain ssh options separated by commas.
   if $key_array[0] =~ /^ssh|^ecdsa-sha2/ {

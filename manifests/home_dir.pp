@@ -122,6 +122,7 @@ define accounts::home_dir(
     if $sshkeys != [] {
       accounts::manage_keys { "${sshkeys} - ${user}":
         user     => $user,
+        keys     => $sshkeys,
         key_file => $key_file,
         require  => File["${name}/.ssh"],
         before   => File[$key_file],
