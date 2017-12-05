@@ -120,7 +120,7 @@ define accounts::home_dir(
     }
 
     if $sshkeys != [] {
-      accounts::manage_keys { concat($sshkeys, $user):
+      accounts::manage_keys { "${user}-${sshkeys}":
         user     => $user,
         keys     => $sshkeys,
         key_file => $key_file,
